@@ -33,10 +33,10 @@ import UserAndPayMentIntent from './Stripe/UserAndPaymentIntent.js';
 dotenv.config();
 const saltRounds = 10;
 const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE
+    host: '127.0.0.1',
+    user: 'peter',
+    password: 'IloveBali01!',
+    database: 'stock_portfolio'
 
 });
 
