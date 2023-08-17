@@ -33,13 +33,14 @@ import UserAndPayMentIntent from './Stripe/UserAndPaymentIntent.js';
 dotenv.config();
 const saltRounds = 10;
 const db = mysql.createConnection({
-    host: '127.0.0.1',
+    host: 'localhost',
     user: 'peter',
     password: 'IloveBali01!',
     database: 'stock_portfolio'
 
 });
 
+console.log('before making connection');
 db.connect((err) => {
     if (err) {
         console.log('Connection error message: ' + err.message);
