@@ -41,7 +41,7 @@ const db = mysql.createConnection({
 });
 
 db.connect (function(err) {
-    if (err) throw (err);
+    if (err) throw err;
     console.log('COnnected to MySql server');
 });
 
