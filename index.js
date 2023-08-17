@@ -40,6 +40,13 @@ const db = mysql.createConnection({
 
 });
 
+db.connect((err) => {
+    if (err) {
+        console.log('Connection error message: ' + err.message);
+        return;
+    }
+    console.log('Connected!')
+});
 
 
 const app = express()
