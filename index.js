@@ -33,17 +33,23 @@ import UserAndPayMentIntent from './Stripe/UserAndPaymentIntent.js';
 dotenv.config();
 const saltRounds = 10;
 const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE
+    host: 'localhost',
+    user: 'peter',
+    password: 'IloveBali01!',
+    database: 'stock_portfolio'
 
 });
 
-db.connect (function(err) {
-    if (err) throw (err);
-    console.log('COnnected to MySql server');
+console.log('before making connection');
+db.connect((err) => {
+    if (err) {
+        console.log('Connection error message: ' + err.message);
+        return;
+    }
+    console.log('Connected!')
 });
+
+
 
 const app = express()
 app.use(cors())
