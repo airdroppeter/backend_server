@@ -19,8 +19,8 @@ const db = mysql.createConnection({
 const Login = express.Router();
 
 Login.post('/', async(req, res) => {
-    //console.log('in sign up on server');
-    //console.log('req.body.credential: ',req.body.credential);
+    console.log('in sign up on server');
+    console.log('req.body.credential: ',req.body.credential);
     try{
         if (req.body.credential){
             //console.log('in if na try')

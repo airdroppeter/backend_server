@@ -15,7 +15,7 @@ const db = mysql.createConnection({
 });
 
 const DividendPricePercentage = express.Router();
-
+ 
 DividendPricePercentage.get("/", (req, res) => {
     //const q = 'select stocks_all.ticker, stocks_all.amount from stocks_all inner join stocks_sector_industry on stocks_all.ticker = stocks_sector_industry.ticker where (stocks_sector_industry.sector= ? and stocks_all.pf_id = ?)'
     const q = 'select date, percentage from dividend_price_percentage_'+req.query.ticker[0]+' where ticker = ? order by date asc'; 
