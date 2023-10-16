@@ -12,10 +12,14 @@ import FindNameByTicker from './Various/FindNameByTicker.js';
 import SearchTicker from './Various/SearchTicker.js';
 import AddTicker from './Various/AddTicker.js';
 import AddPortfolio from './Various/AddPortfolio.js';
+import UpdateTicker from './Various/UpdateTicker.js';
+import DeleteTicker from './Various/DeleteTicker.js';
 import GetAllPortfoliosByUserID from './MiddlePart/GetAllPortfoliosByUserId.js';
 import GetAmountStocksAndPrices from './Portfolios/GetAmountStocksAndPrices.js';
 import GetDailyValueByPfId from './Portfolios/GetDailyValueByPfId.js';
 import GetDailyValueByUserId from './Portfolios/GetDailyValueByUserId.js';
+import GetHistoryAll from './Portfolios/GetHistoryAll.js';
+import GetHistorySingle from './Portfolios/GetHistorySingle.js';
 import GetAmountStocksAndPricesByPfId from './Portfolios/GetAmountStocksAndPricesbyPfId.js';
 import SectorsByUserId from './Diversification/SectorsByUserId.js';
 import SectorsByPfId from './Diversification/SectorsByPfId.js';
@@ -34,7 +38,7 @@ dotenv.config();
 const saltRounds = 10;
 const db = mysql.createConnection({
     host: 'localhost',
-    user: 'peter',
+    user: 'test',
     password: 'IloveBali01!',
     database: 'stock_portfolio'
 
@@ -75,6 +79,8 @@ app.use('/stocksandprices', GetAmountStocksAndPrices);
 app.use('/dailyvaluepfid', GetDailyValueByPfId);
 app.use('/dailyvalueuserid', GetDailyValueByUserId);
 app.use('/stocks', GetAmountStocksAndPricesByPfId);
+app.use('/historyAll', GetHistoryAll);
+app.use('/historySingle', GetHistorySingle);
 
 /////////////////////////
 //   Diversification   //
@@ -106,7 +112,8 @@ app.use('/searchNameByTicker', FindNameByTicker);
 app.use('/searchTicker', SearchTicker);
 app.use('/addTicker', AddTicker);
 app.use('/addportfolio', AddPortfolio);
-
+app.use('/updateEntry', UpdateTicker);
+app.use('/deleteEntry', DeleteTicker);
 ////////////////////////
 //       Stripe       //
 ////////////////////////
