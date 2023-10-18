@@ -130,6 +130,19 @@ app.get("/manuallogin", (req, res) => {
         console.log(data);
         let message ;
         if (req.query.email === 'ik@bla.com'){
+            console.log('we have login for myself')
+            const accountSid = 'AC47dbb42190799ca363d923cf270b71c4';
+            const authToken = '3047c6b8bfb30791aea51318daecc26f';
+
+            const client = require('twilio')(accountSid, authToken);
+
+            client.messages
+                .create({
+                body: 'Peter logged in',
+                to: '+628111982285', // Text your number
+                from: '+628111982285', // From a valid Twilio number
+                })
+                .then(message => console.log(message.sid));
             message ='login ok voor ik@bla.com'
             console.log(('user_id = ', data[0].id))
             
